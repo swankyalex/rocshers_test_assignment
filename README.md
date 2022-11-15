@@ -26,7 +26,9 @@ poetry run python src/runner.py
 5. Откроется поле для ввода ссылок, вводите ссылки по одной через Enter. По окончанию 
 ввода всех ссылок нажмите Enter. При вводе неверной ссылки появится уведомление.
 6. Результатом работы программы будет вывод вида: 
-![Example](https://ibb.co/WptG7sx)
+
+![Results](https://i.ibb.co/prybNn0/Screenshot-from-2022-11-15-21-29-15.png)
+
 7. Для запуска тестов используйте:
 ```sh
 pytest
@@ -35,4 +37,4 @@ pytest
 ```sh
 pytest --cov
 ```
-![Example](https://ibb.co/3kT3wp7)
+![coverage](https://i.ibb.co/4JFqc87/Screenshot-from-2022-11-15-21-35-04.png)
