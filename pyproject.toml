@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "link-parser"
+version = "0.1.0"
+description = ""
+authors = ["payne <antilevski@tut.by>"]
+packages = [{ include = "src" }]
+[tool.poetry.scripts]
+main = "src.runner:main"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+pytest = "^7.2.0"
+coverage = "^6.5.0"
+pytest-cov = "^4.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
