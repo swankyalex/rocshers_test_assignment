@@ -1,3 +1,5 @@
+[![main](https://github.com/swankyalex/rocshers_test_assignment/actions/workflows/python-app.yml/badge.svg?branch=master)](https://github.com/swankyalex/rocshers_test_assignment/actions)
+
 # Тестовое задание
 
 Вакансия: Python developer в команду https://www.linkedin.com/in/rocshers/
