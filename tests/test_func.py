@@ -1,28 +1,29 @@
-from src.runner import check_string, reader, send_request, main
+from src.runner import HttpRequester
 
 
-def test_check_string():
+def test_check_string_method():
     """Testing function of correct-links checking"""
-    result_1 = check_string('http://onliner.by')
-    result_2 = check_string('http://sss')
-    result_3 = check_string('onliner')
+    result_1 = HttpRequester.check_string('http://onliner.by')
+    result_2 = HttpRequester.check_string('http://sss')
+    result_3 = HttpRequester.check_string('onliner')
     assert result_1
     assert result_2
     assert result_3 == False
 
 
-def test_reader(monkeypatch):
+def test_reader_method(monkeypatch):
     """Testing function of reading from stdin"""
     responses = iter(['http://onliner.by', 'onliner.by', 'http://youtube.com', ''])
     monkeypatch.setattr('builtins.input', lambda _: next(responses))
-    result = reader()
-    assert result == ['http://onliner.by', 'http://youtube.com']
+    reader = HttpRequester()
+    reader.reader()
+    assert reader.strings == ['http://onliner.by', 'http://youtube.com']
 
 
-def test_send_request():
+def test_send_request_method():
     """Testing function of sending HTTP requests"""
-    results = {}
-    send_request("http://onliner.by", results)
+    requester = HttpRequester()
+    requester.send_request("http://onliner.by")
     correct = {'http://onliner.by': {'DELETE': 301,
                                      'GET': 200,
                                      'HEAD': 200,
@@ -30,14 +31,15 @@ def test_send_request():
                                      'PATCH': 301,
                                      'POST': 200,
                                      'PUT': 301}}
-    assert results == correct
+    assert requester.results == correct
 
 
-def test_main(capsys, monkeypatch):
+def test_runner(capsys, monkeypatch):
     """Test main function"""
     responses = iter(['http://youtube.com', ''])
     monkeypatch.setattr('builtins.input', lambda _: next(responses))
-    main()
+    requester = HttpRequester()
+    requester.runner()
     captured = capsys.readouterr()
     correct = "{'http://youtube.com': {'CONNECT': 400,\n                        'GET': 200,\n                        'HEAD': 200,\n                        'POST': 400,\n                        'PUT': 400}}\n"
     assert captured.out == correct
