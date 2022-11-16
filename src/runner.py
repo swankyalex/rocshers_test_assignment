@@ -27,7 +27,7 @@ def reader() -> list:
     """Reading data from stdin"""
     strings = []
     while True:
-        string = input()
+        string = input("Введите ссылку: ")
         if string == '':
             break
         if check_string(string):
