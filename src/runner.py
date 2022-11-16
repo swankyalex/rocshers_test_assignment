@@ -1,9 +1,9 @@
 import urllib.request
-from urllib.parse import urlparse
-from urllib.error import URLError
 from pprint import PrettyPrinter
+from urllib.error import URLError
+from urllib.parse import urlparse
 
-from .consts import HTTP_METHODS
+from src.consts import HTTP_METHODS
 
 
 class HttpRequester:
@@ -15,12 +15,12 @@ class HttpRequester:
         """Reading data from stdin"""
         while True:
             string = input("Введите ссылку: ")
-            if string == '':
+            if string == "":
                 break
             if self.check_string(string):
                 self.strings.append(string)
             else:
-                print(f'Строка {string} не является ссылкой')
+                print(f"Строка {string} не является ссылкой")
 
     def send_request(self, url: str) -> None:
         """Sending HTTP requests to provided link"""
@@ -32,7 +32,7 @@ class HttpRequester:
                     if f.status != 405:
                         self.results[url][method] = f.status
             except URLError as err:
-                if hasattr(err, 'status'):
+                if hasattr(err, "status"):
                     if err.status != 405:
                         self.results[url][method] = err.status
 
