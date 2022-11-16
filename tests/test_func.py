@@ -14,7 +14,7 @@ def test_check_string():
 def test_reader(monkeypatch):
     """Testing function of reading from stdin"""
     responses = iter(['http://onliner.by', 'onliner.by', 'http://youtube.com', ''])
-    monkeypatch.setattr('builtins.input', lambda: next(responses))
+    monkeypatch.setattr('builtins.input', lambda _: next(responses))
     result = reader()
     assert result == ['http://onliner.by', 'http://youtube.com']
 
@@ -36,7 +36,7 @@ def test_send_request():
 def test_main(capsys, monkeypatch):
     """Test main function"""
     responses = iter(['http://youtube.com', ''])
-    monkeypatch.setattr('builtins.input', lambda: next(responses))
+    monkeypatch.setattr('builtins.input', lambda _: next(responses))
     main()
     captured = capsys.readouterr()
     correct = "{'http://youtube.com': {'CONNECT': 400,\n                        'GET': 200,\n                        'HEAD': 200,\n                        'POST': 400,\n                        'PUT': 400}}\n"
