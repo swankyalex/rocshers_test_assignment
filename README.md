@@ -1,4 +1,5 @@
 [![main](https://github.com/swankyalex/rocshers_test_assignment/actions/workflows/python-app.yml/badge.svg?branch=master)](https://github.com/swankyalex/rocshers_test_assignment/actions)
+[![Lines of code](https://img.shields.io/tokei/lines/github/swankyalex/rocshers_test_assignment)](https://github.com/swankyalex/rocshers_test_assignment/tree/master)
 
 # Тестовое задание
 
