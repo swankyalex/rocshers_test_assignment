@@ -15,6 +15,7 @@ run:
 	$(PYTHON) src/runner.py
 
 
+
 .PHONY: test
 test:
 	$(call log, testing app)
