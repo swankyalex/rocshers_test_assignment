@@ -30,11 +30,11 @@ cov:
 .PHONY: venv
 venv:
 	$(call log, installing packages)
-	$(PIPENV_INSTALL)
+	$(VENV_INSTALL)
 
 
 .PHONY: venv-dev
 venv-dev:
 	$(call log, installing development packages)
-	$(PIPENV_INSTALL) --dev
+	$(VENV_INSTALL) --dev
 
